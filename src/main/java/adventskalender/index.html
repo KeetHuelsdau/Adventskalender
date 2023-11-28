@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>🎅 Adventskalender</title>
+</head>
+<style>
+    .calender {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: space-evenly;
+        width: 100vw;
+        height: 100vh;
+        padding: 5vw;
+        box-sizing: border-box;
+        background-image: linear-gradient(#235d02, #3f771c, #9cf105);
+    }
+
+    .door {
+        flex: 0 0 calc(16.6667% - 16px);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bolder;
+        font-family: Bahnschrift, sans-serif;
+        color:  #e8bb08;
+        text-shadow: 0 0 3px #070707;
+        border-radius: 50%;
+        border: 6px double #310109;
+        padding: 20px;
+        background: #7a2234;
+        cursor: pointer;
+        margin-bottom: 10px; /*Abstand zwischen den Türchen*/
+    }
+
+    .door:nth-child(6n+1){
+        flex-basis: 5%;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #FFF;
+        width: 80%;
+        font-family: Bahnschrift, sans-serif;
+    }
+
+    .close {
+        float: right;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        color: darkred;
+    }
+</style>
+
+<script type="module">
+
+    function createCalender() {
+        let calenderDiv = document.getElementById("calender");
+        let doorWidths = [4, 6, 4, 6, 4];
+        let numbers = Array.from({length: 24}, (_, i) => i + 1);
+        let shuffledNumbers = shuffleArray(numbers.slice());
+
+        for (let i = 0; i < shuffledNumbers.length; i++) {
+            const door = document.createElement("div");
+            door.classList.add("door");
+            door.classList.add("width-" + doorWidths[i % doorWidths.length]);
+            door.textContent = shuffledNumbers[i];
+            door.style.width = "50px";
+            door.setAttribute("data-day", String(shuffledNumbers[i]));
+            door.addEventListener("click", openDoor);
+            calenderDiv.appendChild(door);
+        }
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+    //zu Testzwecken für die function openDoor
+    let testDate = new Date();
+    testDate.setMonth(11); // Monat: Dezember (0-basiert, also 11 für Dezember)
+    testDate.setDate(15); // Tag: 15
+    testDate.setFullYear(2023);
+    function openDoor(event) {
+        //Zu Testzwecken:
+        let currentDay = testDate.getDate();
+        let currentMonth = testDate.getMonth() + 1;
+
+        /*
+        let currentDate = new Date();
+        let currentDay = currentDate.getDate();
+        let currentMonth = currentDate.getMonth() + 1;
+*/
+        if (currentMonth === 12 && testDate >= 1) {
+        //if (currentMonth === 12 && currentDate >= 1) {
+            let day = parseInt(event.target.getAttribute("data-day"));
+            if (day <= currentDay) {
+                let geschichten = [
+                    "Geschichte 1",
+                    "Geschichte 2",
+                    "Geschichte 3",
+                    "Geschichte 4",
+                    "Geschichte 5",
+                    "Geschichte 6",
+                    "Geschichte 7",
+                    "Geschichte 8",
+                    "Geschichte 9",
+                    "Geschichte 10",
+                    "Geschichte 11",
+                    "Geschichte 12",
+                    "Geschichte 13",
+                    "Geschichte 14",
+                    "Geschichte 15",
+                    "Geschichte 16",
+                    "Geschichte 17",
+                    "Geschichte 18",
+                    "Geschichte 19",
+                    "Geschichte 20",
+                    "Geschichte 21",
+                    "Geschichte 22",
+                    "Geschichte 23",
+                    "Geschichte 24",
+                ];
+
+                let geschichte = geschichten[day - 1];
+                showModal(geschichte);
+            } else {
+                showModal("Gedulde Dich noch ein wenig...Das Türchen kann erst an einem späteren Tag geöffnet werden.");
+            }
+        } else {
+            showModal("Das Adventskalender-Event beginnt am 1.Dezember");
+        }
+    }
+
+    function showModal(spruch) {
+        const modal = document.getElementById("modal");
+        const modalText = document.getElementById("modal-text");
+        modalText.textContent = spruch;
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("modal");
+        modal.style.display = "none";
+    }
+
+    document.getElementById("closeModalBtn").addEventListener("click", closeModal);
+
+    createCalender();
+
+</script>
+
+<body>
+<div class="calender" id="calender">
+    <!--Hier werden die Türchen generiert-->
+</div>
+
+<!--In diesem Bereich erscheint dann der Inhalt der Türen-->
+<div class="modal" id="modal">
+    <div class="modal-content" id="modal-content">
+        <span class="close" id="closeModalBtn">&times;</span>
+        <h2 id="modal-text"></h2>
+    </div>
+</div>
+</body>
+</html>
