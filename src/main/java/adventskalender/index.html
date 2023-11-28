@@ -23,17 +23,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 18px;
+        font-size: 40px;
         font-weight: bolder;
         font-family: Bahnschrift, sans-serif;
         color:  #e8bb08;
         text-shadow: 0 0 3px #070707;
         border-radius: 50%;
         border: 6px double #310109;
-        padding: 20px;
+        padding: 40px;
         background: #7a2234;
         cursor: pointer;
-        margin-bottom: 10px; /*Abstand zwischen den Türchen*/
+        margin: 10px; /*Abstand zwischen den Türchen*/
     }
 
     .door:nth-child(6n+1){
@@ -121,10 +121,42 @@
             let day = parseInt(event.target.getAttribute("data-day"));
             if (day <= currentDay) {
                 let geschichten = [
-                    "Geschichte 1",
-                    "Geschichte 2",
-                    "Geschichte 3",
-                    "Geschichte 4",
+                    "1.) Jemand steht in der Kreide. Diese Redensart besagt, dass jemand Schulden hat, und entstand, " +
+                    "nachdem die Nutzung des Kerbholzes für die Buchführung in Gasthäusern aus der Mode gekommen war. " +
+                    "Nun hatte der Wirt eine große Tafel an der Wand, auf der er die Schulden der Gäste mit Kreise anschrieb. " +
+                    "In früheren Zeiten war es auch üblich, beim Krämer oder Händler „anschreiben“ zu lassen, was diese " +
+                    "auch auf Tagen taten, bis der Kunde am Monats- oder Wochenanfang seinen Lohn bekam und bezahlen konnte. " +
+                    "Dies wurde auch mit „auf Kreide leben“ bezeichnet – von Kredit leben. Später ersetzte in der " +
+                    "Kneipe der Bierdeckel und im Laden das Kundenbuch die Tafel.",
+
+                    "2.) Turnen verboten! Anfang des 19.Jahrhunderts gründete der Lehrer und Politiker Friedrich Ludwig " +
+                    "Jahn in Preußen die Turnbewegung. Von Anfang an war diese vordergründig sportliche Bewegung politisch motiviert. " +
+                    "Jahn wollte nämlich die preußische und auch insgesamt die deutsche Jugend körperlich für den Kampf " +
+                    "gegen die französischen Besatzer unter Napoleon fit machen. 1811 wurde in der Berliner Hasenheide der " +
+                    "erste deutsche Turnplatz eröffnet. Nach dem Sieg über Napoleon wurde Jahn der preußischen Regierung aber " +
+                    "lästig, weil er nun für eine vereinigtes Deutschland eintrat. 1819 wurde „Turnvater“ Jahn als Demagoge verhaftet, " +
+                    "und vor genau 203 Jahren verbot die preußische Regierung 1820 das Turnen insgesamt. Trotzdem wurde heimlich " +
+                    "weitergeturnt, und 1837 wurden erstmals „Leibesübungen“ als Unterrichtsfach in Gymnasien zugelassen.",
+
+                    "3.) Der Fürst der Finsternis. Nein, dieses Mal ist nicht der Teufel in Person gemeint, sondern der " +
+                    "englische Rock-Musiker John „Ozzy“ Osbourne, der am 3. Dezember seinen 75.Geburtstag begeht. 1969 " +
+                    "wurde er Sänger der Heavy Metal Band Black Sabbath, der er bis 1979 angehörte. Die folgenden Jahre " +
+                    "waren von musikalischen Erfolgen, Alkohol- und Drogenexzessen sowie an Wahnsinn grenzenden Aktionen " +
+                    "geprägt. So biss er auf der Bühne bei einem Live-Auftritt einer Fledermaus (aus Versehen) den Kopf ab " +
+                    "und betrieb okkulte Rituale, was ihm den Beinamen „Fürst der Finsternis“ einbrachte. Seine mit großen Hits " +
+                    "gespickte Solokarriere war immer wieder von gesundheitlichen Problemen durch die Folgen von Alkohol- und " +
+                    "Drogenmissbrauch geprägt. Im Jahr 2012 kam es zu einer Wiedervereinigung der Band Black Sabbath, " +
+                    "mit der er bis ins Jahr 2017 tourte.",
+
+                    "4.) König Karlmann I. Bei allen unbestrittenen Verdiensten Karls des Großen wird oft übersehen, " +
+                    "wie skrupellos er bei der Sicherung seiner Herrschaft zu Werke ging – selbst der eigenen Familie gegenüber. " +
+                    "Kurz vor seinem Tod hatte König Pippin sein Reich unter seinen Söhnen Karl und Karlmann aufgeteilt. " +
+                    "Doch wurde das Verhältnis zwischen den beiden immer schlechter, bis König Karlmann I. vor genau 1252 " +
+                    "Jahren am 4. Dezember 771 im Alter von nur 20 Jahren völlig überraschend an einer nicht näher bezeichneten " +
+                    "Krankheit starb. Ein oft vermuteter Mordanschlag Karls kann heute aus den Quellen heraus nicht mehr nachgewiesen " +
+                    "werden. Sofort übernahm Karl jedoch das Reich seines Bruders. Dessen Frau und seine beiden Erben mussten fliehen. " +
+                    "Zwei Jahre später gerieten sie in Karls Hände, danach verliert sich ihr Schicksal – ein Schelm, wer Böses dabei denkt…",
+
                     "Geschichte 5",
                     "Geschichte 6",
                     "Geschichte 7",
