@@ -8,18 +8,23 @@
     .calender {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-content: space-evenly;
+        justify-content: center;
+        align-content: center;
         width: 100vw;
         height: 100vh;
         padding: 5vw;
         box-sizing: border-box;
         background-image: linear-gradient(#235d02, #3f771c, #9cf105);
+        margin: 0;
+        position: relative;
+        top: 0;
+        left: 0;
     }
 
     .door {
-        flex: 0 0 calc(16.6667% - 16px);
+        flex: calc(16.6667% - 16px);
         height: 50px;
+        width: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -34,6 +39,7 @@
         background: #7a2234;
         cursor: pointer;
         margin: 10px; /*Abstand zwischen den Türchen*/
+        /*clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);*/
     }
 
     .door:nth-child(6n+1){
@@ -104,7 +110,7 @@
     //zu Testzwecken für die function openDoor
     let testDate = new Date();
     testDate.setMonth(11); // Monat: Dezember (0-basiert, also 11 für Dezember)
-    testDate.setDate(15); // Tag: 15
+    testDate.setDate(5); // Tag: 15
     testDate.setFullYear(2023);
     function openDoor(event) {
         //Zu Testzwecken:
@@ -181,6 +187,7 @@
 
                 let geschichte = geschichten[day - 1];
                 showModal(geschichte);
+
             } else {
                 showModal("Gedulde Dich noch ein wenig...Das Türchen kann erst an einem späteren Tag geöffnet werden.");
             }
@@ -210,6 +217,7 @@
 <body>
 <div class="calender" id="calender">
     <!--Hier werden die Türchen generiert-->
+
 </div>
 
 <!--In diesem Bereich erscheint dann der Inhalt der Türen-->
